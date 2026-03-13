@@ -1,6 +1,6 @@
 @font-face{
     font-family: india;
-    src: url(SpaceGrotesk-Regular.woff);
+    src: url("./SpaceGrotesk-Regular.woff");
 }
 
 /* RESET */
@@ -10,9 +10,19 @@
     box-sizing:border-box;
 }
 
+/* GLOBAL FIXES */
 body{
     font-family:india;
     background:pink;
+    max-width:1400px;
+    margin:auto;
+}
+
+/* prevent images breaking layout */
+img{
+    max-width:100%;
+    height:auto;
+    display:block;
 }
 
 /* PARTICLES */
