@@ -79,9 +79,27 @@ Button.addEventListener("click",function(){
   })
 
 
+// GSAP + ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
-// gsap.registerPlugin(ScrollTrigger);
-var main = gsap.timeline()
+
+// make all scroll animations replay
+ScrollTrigger.defaults({
+  toggleActions:"play reverse play reverse"
+});
+
+
+// sync Lenis with ScrollTrigger
+lenis.on("scroll", ScrollTrigger.update);
+
+gsap.ticker.add((time)=>{
+  lenis.raf(time * 1000);
+});
+
+gsap.ticker.lagSmoothing(0);
+
+
+// FIRST PAGE TIMELINE
+var main = gsap.timeline();
 
 main.from(".fristh1",{
   y:-60,
@@ -89,23 +107,26 @@ main.from(".fristh1",{
   duration:1
 })
 
-main.from(".h3hd",{
+.from(".h3hd",{
   x:100,
   opacity:0,
   duration:0.5
 })
 
-main.from(".h4hd",{
+.from(".h4hd",{
   x:-100,
   opacity:0,
   duration:0.5
 })
 
-main.from(".divs p",{
+.from(".divs p",{
   y:80,
   opacity:0,
   duration:1
-}) 
+})
+
+
+// PHOTO TITLE
 gsap.from(".photo h1",{
   scrollTrigger:{
     trigger:".photo",
@@ -125,128 +146,116 @@ gsap.from(".photo i",{
   opacity:0,
   duration:1
 })
+
+
+// PIC 1
 gsap.from(".pic1 img",{
-  scrollTrigger:{
-    trigger:".pic1",
-    start:"top 85%"
-  },
+  scrollTrigger:{trigger:".pic1",start:"top 85%"},
   x:-150,
   opacity:0,
   duration:1
 })
 
 gsap.from(".pic1 p",{
-  scrollTrigger:{
-    trigger:".pic1",
-    start:"top 85%"
-  },
+  scrollTrigger:{trigger:".pic1",start:"top 85%"},
   x:-80,
   opacity:0,
   duration:1
 })
+
+
+// PIC 2
 gsap.from(".pic2 img",{
-  scrollTrigger:{
-    trigger:".pic2",
-    start:"top 85%"
-  },
+  scrollTrigger:{trigger:".pic2",start:"top 85%"},
   y:-120,
   opacity:0,
   duration:1
 })
 
 gsap.from(".pic2 p",{
-  scrollTrigger:{
-    trigger:".pic2",
-    start:"top 85%"
-  },
+  scrollTrigger:{trigger:".pic2",start:"top 85%"},
   x:120,
   opacity:0,
   duration:1
 })
+
+
+// PARA 1
 gsap.from(".para1 p",{
-  scrollTrigger:{
-    trigger:".para1",
-    start:"top 85%"
-  },
+  scrollTrigger:{trigger:".para1",start:"top 85%"},
   x:-120,
   opacity:0,
   duration:1
 })
+
+
+// PIC 3
 gsap.from(".pic3 img",{
-  scrollTrigger:{
-    trigger:".pic3",
-    start:"top 85%"
-  },
+  scrollTrigger:{trigger:".pic3",start:"top 85%"},
   x:150,
   opacity:0,
   duration:1
 })
 
 gsap.from(".pic3 p",{
-  scrollTrigger:{
-    trigger:".pic3",
-    start:"top 85%"
-  },
+  scrollTrigger:{trigger:".pic3",start:"top 85%"},
   x:-100,
   opacity:0,
   duration:1
 })
+
+
+// PIC 4
 gsap.from(".pic4 img",{
-  scrollTrigger:{
-    trigger:".pic4",
-    start:"top 85%"
-  },
+  scrollTrigger:{trigger:".pic4",start:"top 85%"},
   y:150,
   opacity:0,
   duration:1
 })
 
 gsap.from(".pic4 p",{
-  scrollTrigger:{
-    trigger:".pic4",
-    start:"top 85%"
-  },
+  scrollTrigger:{trigger:".pic4",start:"top 85%"},
   x:120,
   opacity:0,
   duration:1
 })
+
+
+// PARA 2
 gsap.from(".para2 p",{
-  scrollTrigger:{
-    trigger:".para2",
-    start:"top 85%"
-  },
+  scrollTrigger:{trigger:".para2",start:"top 85%"},
   x:-120,
   opacity:0,
   duration:1
 })
+
+
+// TWO IMAGES
 gsap.from(".in1pic img",{
-  scrollTrigger:{
-    trigger:".twop",
-    start:"top 85%"
-  },
+  scrollTrigger:{trigger:".twop",start:"top 85%"},
   x:-200,
   opacity:0,
   duration:1
 })
 
 gsap.from(".in2pic img",{
-  scrollTrigger:{
-    trigger:".twop",
-    start:"top 85%"
-  },
+  scrollTrigger:{trigger:".twop",start:"top 85%"},
   x:200,
   opacity:0,
   duration:1
 })
+
+
+// PARA 3
 gsap.from(".para3 p",{
-  scrollTrigger:{
-    trigger:".para3",
-    start:"top 85%"
-  },
+  scrollTrigger:{trigger:".para3",start:"top 85%"},
   x:-120,
   opacity:0,
   duration:1
 })
+
+
+// GRID IMAGES
 gsap.from(".under1 img",{
   scrollTrigger:{trigger:".under1",start:"top 85%"},
   x:120,
@@ -274,30 +283,22 @@ gsap.from(".under4 img",{
   opacity:0,
   duration:1
 })
+
+
+// LAST TEXT
 gsap.from(".lastpara p",{
-  scrollTrigger:{
-    trigger:".lastpara",
-    start:"top 85%"
-  },
+  scrollTrigger:{trigger:".lastpara",start:"top 85%"},
   scale:0.8,
   opacity:0,
   duration:1
 })
 
+
+// FINAL BOX
 gsap.from(".lastdiv",{
   scrollTrigger:{
     trigger:".lastdiv",
-    start:"top 80%",
-  },
-  scale:0.9,
-  opacity:0,
-  duration:1
-})
-
-gsap.from(".nocursor button",{
-  scrollTrigger:{
-    trigger:".nocursor",
-    start:"top 10%",
+    start:"top 80%"
   },
   scale:0.9,
   opacity:0,
